@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand colors */
+    --navy-deep: #071A33;
+    --navy: #0B2A4A;
+    --teal: #008C9E;
+    --teal-light: #5BB8C4;
+    --cyan: #19C3D1;
+    --light-bg: #F5F8FB;
+
+    /* Light theme tokens */
+    --background: 210 40% 98%;
+    --foreground: 215 45% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 45% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 45% 12%;
+    --primary: 199 89% 32%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 215 45% 20%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 189 94% 43%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 199 89% 32%;
+    --chart-1: 199 89% 32%;
+    --chart-2: 189 94% 43%;
+    --chart-3: 142 71% 45%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 262 83% 58%;
+    --radius: 0.5rem;
+
+    --sidebar-width: 264px;
+    --sidebar-collapsed: 76px;
+  }
+
+  .dark {
+    --navy-deep: #071A33;
+    --navy: #0B2A4A;
+    --teal: #008C9E;
+    --teal-light: #5BB8C4;
+    --cyan: #19C3D1;
+    --light-bg: #0a1929;
+
+    --background: 210 50% 8%;
+    --foreground: 210 40% 96%;
+    --card: 215 45% 11%;
+    --card-foreground: 210 40% 96%;
+    --popover: 215 45% 11%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 189 80% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 35% 16%;
+    --secondary-foreground: 210 40% 92%;
+    --muted: 215 35% 16%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 189 80% 42%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --border: 215 35% 20%;
+    --input: 215 35% 20%;
+    --ring: 189 80% 42%;
+    --chart-1: 189 80% 42%;
+    --chart-2: 199 89% 40%;
+    --chart-3: 142 71% 45%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 262 83% 65%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .shadow-soft {
+    box-shadow: 0 1px 3px rgba(7, 26, 51, 0.04), 0 2px 8px -2px rgba(7, 26, 51, 0.03);
+  }
+
+  .shadow-card {
+    box-shadow: 0 1px 3px rgba(7, 26, 51, 0.04), 0 4px 16px -6px rgba(7, 26, 51, 0.06);
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.15s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Print styles for prescriptions */
+@media print {
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+  body { background: white !important; }
+  .print-page {
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+.print-only { display: none; }
